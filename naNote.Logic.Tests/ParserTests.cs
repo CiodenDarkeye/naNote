@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Xunit;
-using naNote.Logic;
+using Nanote.Logic;
 using Nanote.Logic.Model;
 using System.Linq;
 using Nanote.Logic.Data;

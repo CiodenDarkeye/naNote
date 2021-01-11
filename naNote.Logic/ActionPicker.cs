@@ -1,6 +1,6 @@
 namespace Nanote.Logic
 {
-    public static class ActionParser
+    public static class ActionPicker
     {
         public static string Select(string Action)
         {
@@ -18,7 +18,5 @@ namespace Nanote.Logic
                     return "Action not found!";
             }
         }
-
-
     }
 }

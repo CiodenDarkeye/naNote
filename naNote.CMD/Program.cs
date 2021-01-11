@@ -10,29 +10,38 @@ namespace Nanote.CMD
         static void Main(string[] args)
         {
             // Payload for testing
-            string payload = "diary #work I've come to a realization last night that I can separate this work out further. #what #is #this #help?";
+            string payload;
             string catList;
 
             Console.WriteLine("Console Application time!");
-            Console.WriteLine($"Let's parse: {payload}");
-
-            Catalog catalog = new Catalog(true);
-            Parser parsed = new Parser(payload, catalog.categoryList);
-
-            if (parsed.Categories == null)
+            while (true)
             {
-                catList = "No categories!";
-            }
-            else
-            {
-                catList = string.Join(", ", parsed.Categories.Select(x => x.Name));
-            }
-            
+                Console.Clear();
+                Console.WriteLine("Enter your commands");
+                Console.Write(">");
+                payload = Console.ReadLine();
+                Console.WriteLine($"Let's parse: {payload}");
 
-            Console.WriteLine($"Action: {parsed.Action}");
-            Console.WriteLine($"Payload: {parsed.Payload}");
-            Console.WriteLine($"Categories: {catList}");
-            Console.WriteLine($"What does the Parser think? {ActionParser.Select(parsed.Action)}");
+                Catalog catalog = new Catalog(true);
+                Parser parsed = new Parser(payload, catalog.categoryList);
+
+                if (parsed.Categories == null)
+                {
+                    catList = "No categories!";
+                }
+                else
+                {
+                    catList = string.Join(", ", parsed.Categories.Select(x => x.Name));
+                }
+
+
+                Console.WriteLine($"Action: {parsed.Action}");
+                Console.WriteLine($"Payload: {parsed.Payload}");
+                Console.WriteLine($"Categories: {catList}");
+                Console.WriteLine($"What does the Parser think? {ActionPicker.Select(parsed.Action)}");
+                Console.WriteLine("Press any key to continue.");
+                Console.ReadKey();
+            }
         }
     }
 }
