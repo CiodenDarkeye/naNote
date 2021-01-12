@@ -6,25 +6,26 @@ namespace Nanote.Logic.Data
 {
     public class Catalog
     {
-        public List<Category> categoryList { get; set; }
-        public List<Diary> diaryList { get; set; }
-        public List<Note> noteList { get; set; }
+        public List<Category> CategoryList { get; set; }
+        public List<Diary> DiaryList { get; set; }
+        public List<Note> NoteList { get; set; }
+
         public Catalog(bool filler)
         {
             // debug mode, which adds filler data
-            categoryList = new List<Category>();
-            diaryList = new List<Diary>();
-            noteList = new List<Note>();
+            CategoryList = new List<Category>();
+            DiaryList = new List<Diary>();
+            NoteList = new List<Note>();
 
-            categoryList.Add(new Category(){Name="Work"});
-            categoryList.Add(new Category(){Name="Personal"});
-            categoryList.Add(new Category(){Name="Cooking"});
+            CategoryList.Add(new Category(){Name="Work"});
+            CategoryList.Add(new Category(){Name="Personal"});
+            CategoryList.Add(new Category(){Name="Cooking"});
         }
         public Catalog()
         {
-            categoryList = new List<Category>();
-            diaryList = new List<Diary>();
-            noteList = new List<Note>();
+            CategoryList = new List<Category>();
+            DiaryList = new List<Diary>();
+            NoteList = new List<Note>();
         }
         
     }

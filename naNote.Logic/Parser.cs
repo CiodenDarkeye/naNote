@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Nanote.Logic.Model;
+using Nanote.Logic.Actions;
+using Nanote.Logic.Data;
 
 namespace Nanote.Logic
 {
     public class Parser
     {
         readonly string _toParse;
-        public List<Category> _categoryCatalog;
-        public Parser(string toParse, List<Category> categories)
+        private Catalog _catalog;
+        
+        public Parser(
+            string toParse, 
+            Catalog catalog)
         {
             _toParse = toParse;
-            _categoryCatalog = categories;
+            _catalog = catalog;
             Categories = new List<Category>();
             ParseText();
         }
@@ -36,9 +41,9 @@ namespace Nanote.Logic
                 {
                     // If it's a category, check to see if the category exists, then add it
                     var cat = new Category() { Name = word.TrimStart('#')};
-                    if (!_categoryCatalog.Any(p => p.Name == cat.Name))
+                    if (!_catalog.CategoryList.Any(p => p.Name == cat.Name))
                     {
-                        _categoryCatalog.Add(cat);
+                        _catalog.CategoryList.Add(cat);
                     }
                     Categories.Add(cat);
                 }
@@ -49,5 +54,7 @@ namespace Nanote.Logic
             }
             Payload = payloadBuilder.ToString().Trim();
         }
+
+        
     }
 }

@@ -6,7 +6,7 @@ using Nanote.Logic.Model;
 using System.Linq;
 using Nanote.Logic.Data;
 
-namespace naNote.LogicTests
+namespace Nanote.LogicTests
 {
     public class ParserTests
     {
@@ -19,10 +19,10 @@ namespace naNote.LogicTests
         string testCategory = "#Work";
         string testPayload = "What a week!";
         string parserPass = $"{testAction} {testCategory} {testPayload}";
-        
+
         //When
-        catalog.categoryList.Add(new Category(){Name="Work"});
-        var testParser = new Parser(parserPass, catalog.categoryList);
+        catalog.CategoryList.Add(new Category(){Name="Work"});
+        var testParser = new Parser(parserPass, catalog);
 
         //Then
 
@@ -42,8 +42,8 @@ namespace naNote.LogicTests
         string parserPass = "diary #help wow, what a crazy week this has been! #wow #worldofwarcraft";
 
         //When
-        catalog.categoryList.Add(new Category(){Name="Work"});
-        var testParser = new Parser(parserPass, catalog.categoryList);
+        catalog.CategoryList.Add(new Category(){Name="Work"});
+        var testParser = new Parser(parserPass, catalog);
 
         //Then
         Assert.False(testParser.Categories.FirstOrDefault().Name.Contains('#'));
