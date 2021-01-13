@@ -12,7 +12,7 @@ namespace Nanote.Logic.Actions
     {
         public static void AddNote(
             Catalog catalog, 
-            List<int> categories,
+            HashSet<int> categories,
             String payload)
         {
             var newEntry = new Note()

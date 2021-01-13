@@ -11,16 +11,24 @@ namespace Nanote.Logic.Actions
     public static class DiaryActions
     {
         public static void AddDiary(
-            Catalog catalog, 
-            List<int> categories,
+            Catalog catalog,
+            HashSet<int> categories,
             String payload)
         {
-            var newEntry = new Diary()
+            // Check to see if there's an existing diary already today
+
+            if (catalog.DiaryList.Any(p => p.CreatedDtime.Date == DateTime.Today))
             {
-                Entry = payload,
-            };
-            newEntry.CategoryIDs.AddRange(categories);
-            catalog.DiaryList.Add(newEntry);
+                var diaryToEdit = catalog.DiaryList.Last(p => p.CreatedDtime.Date == DateTime.Today);
+                diaryToEdit.CategoryIDs.UnionWith(categories);
+                diaryToEdit.Entry += $"\n{DateTime.Now.ToShortDateString()}: {payload}";
+            }
+            else
+            {
+                var newEntry = new Diary() {Entry = $"{DateTime.Now.ToShortDateString()}: {payload}" };
+                newEntry.CategoryIDs.UnionWith(categories);
+                catalog.DiaryList.Add(newEntry);
+            }   
         }
     }
 }

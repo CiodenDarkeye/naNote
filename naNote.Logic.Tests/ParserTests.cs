@@ -30,7 +30,7 @@ namespace Nanote.Logic.Tests
         // Check that the inputted action matches the outputted action
         Assert.Equal(testParser.Action, testAction);
         // Check that the category matches
-        Assert.True(testParser.Categories[0] == testCategoryId);
+        Assert.Contains(0, testParser.Categories);
         // Check that the payload works as well
         Assert.Equal(testParser.Payload, testPayload);
         }

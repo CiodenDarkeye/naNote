@@ -1,12 +1,13 @@
 ﻿using Nanote.Logic.Actions;
 using Nanote.Logic.Data;
+using System;
 using System.Collections.Generic;
 
 namespace Nanote.CMD
 {
     internal class CMDActions
     {
-        public static string Act(string Action, Catalog catalog, List<int> categories, string payload)
+        public static string Act(string Action, Catalog catalog, HashSet<int> categories, string payload)
         {
             switch (Action.ToLower())
             {
@@ -19,13 +20,21 @@ namespace Nanote.CMD
                 case "reminder":
                     return "reminder! Not yet implemented though.";
                 case "list":
-                    return ListActions.List(catalog, payload).ToString();
+                    var retString = "";
+                    foreach (var entry in ListActions.List(catalog, payload))
+                    {
+                        retString += entry;
+                    }
+                    return retString;
                 case "save":
                     Access.Save(catalog);
                     return "Saved!";
                 case "load":
                     catalog = Access.Load();
                     return "Load complete!";
+                case "exit":
+                    Environment.Exit(0);
+                    return "You won't see this!";
                 default:
                     return "Action not found!";
             }

@@ -27,7 +27,7 @@ namespace Nanote.Logic.Tests
 
 
             // assert
-            Assert.Equal(catalog.DiaryList.First().Entry, CatalogBuilder.ReturnExpectedStrings()[0]);
+            Assert.Contains(CatalogBuilder.ReturnExpectedStrings()[0], catalog.DiaryList.First().Entry);
 
         }
 

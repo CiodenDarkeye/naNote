@@ -17,12 +17,12 @@ namespace Nanote.Logic.Tests
             Catalog catalog = new Catalog();
 
             //Act
-            DiaryActions.AddDiary(catalog, new List<int>() { 0, 1, 2 }, "Diary #1");
-            DiaryActions.AddDiary(catalog, new List<int>() { 4, 5, 6 }, "Diary #2");
+            DiaryActions.AddDiary(catalog, new HashSet<int>() { 0, 1, 2 }, "Diary #1");
+            DiaryActions.AddDiary(catalog, new HashSet<int>() { 4, 5, 6 }, "Diary #2");
 
             //Assert
-            Assert.Equal("Diary #1", catalog.DiaryList.First().Entry);
-            Assert.Equal(new List<int>() { 4, 5, 6 }, catalog.DiaryList.Last().CategoryIDs);
+            Assert.Contains("Diary #1", catalog.DiaryList.First().Entry);
+            Assert.Equal(new HashSet<int>() {0,1,2,4,5,6}, catalog.DiaryList.Last().CategoryIDs);
 
         }
 
@@ -33,8 +33,8 @@ namespace Nanote.Logic.Tests
             Catalog catalog = new Catalog();
 
             //Act
-            NoteActions.AddNote(catalog, new List<int>() { 0, 1, 2 }, "Note #1");
-            NoteActions.AddNote(catalog, new List<int>() { 4, 5, 6 }, "Note #2");
+            NoteActions.AddNote(catalog, new HashSet<int>() { 0, 1, 2 }, "Note #1");
+            NoteActions.AddNote(catalog, new HashSet<int>() { 4, 5, 6 }, "Note #2");
 
             //Assert
             Assert.Equal("Note #1", catalog.NoteList.First().Entry);
@@ -48,13 +48,13 @@ namespace Nanote.Logic.Tests
             Catalog catalog = CatalogBuilder.BuildTestCatalog();
 
             // Act
-            List<string> NoteList = ListActions.List(catalog, "list note");
-            List<string> DiaryList = ListActions.List(catalog, "list diary");
-            List<string> CategoryList = ListActions.List(catalog, "list category");
+            List<string> NoteList = ListActions.List(catalog, "note");
+            List<string> DiaryList = ListActions.List(catalog, "diary");
+            List<string> CategoryList = ListActions.List(catalog, "category");
 
             // Assert
             Assert.Equal(3, NoteList.Count);
-            Assert.Equal(3, DiaryList.Count);
+            Assert.Single(DiaryList);
             Assert.Equal(9, CategoryList.Count);
         }
     }

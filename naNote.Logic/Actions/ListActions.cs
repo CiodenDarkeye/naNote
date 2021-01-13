@@ -12,7 +12,7 @@ namespace Nanote.Logic.Actions
     {
         public static List<string> List(Catalog catalog, string payload)
         {
-            switch (payload.Split(' ')[1])
+            switch (payload)
             {
                 case "diary":
                     return ListDiaries(catalog);
@@ -32,7 +32,7 @@ namespace Nanote.Logic.Actions
 
             foreach (Diary diary in catalog.DiaryList.TakeLast(10))
             {
-                retList.Add($"Entry #{diary.Id} at {diary.CreatedDtime.ToShortDateString()}" +
+                retList.Add($"Entry #{diary.Id}, created at {diary.CreatedDtime.ToShortDateString()}\n" +
                     $"{diary.Entry}");
             }
 

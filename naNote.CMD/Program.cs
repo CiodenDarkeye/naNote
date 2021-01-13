@@ -17,7 +17,7 @@ namespace Nanote.CMD
             Console.WriteLine("Console Application time!");
             while (true)
             {
-                Console.Clear();
+                //Console.Clear();
                 Console.WriteLine("Enter your commands");
                 Console.Write(">");
                 string payload = Console.ReadLine();
@@ -27,9 +27,7 @@ namespace Nanote.CMD
                 var result = Act(parsed.Action, catalog, parsed.Categories, parsed.Payload);
 
                 Console.WriteLine(result);
-                Console.WriteLine("Press any key to continue!");
-
-                Console.ReadKey();
+                System.Threading.Thread.Sleep(1000);
             }
         }
     }

@@ -19,12 +19,12 @@ namespace Nanote.Logic
         {
             _toParse = toParse;
             _catalog = catalog;
-            Categories = new List<int>();
+            Categories = new HashSet<int>();
             ParseText();
         }
 
         public string Action { get; set; }
-        public List<int> Categories { get; set; }
+        public HashSet<int> Categories { get; set; }
         public string Payload { get; set; }
 
         private void ParseText()

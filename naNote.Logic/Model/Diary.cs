@@ -1,17 +1,31 @@
+using System;
 using System.Collections.Generic;
 
 namespace Nanote.Logic.Model
 {
     public class Diary: BaseEntry
     {
-        public List<int> CategoryIDs{ get; set; }
-        public string Entry { get; set; }
+        public HashSet<int> CategoryIDs{ get; set; }
+        public string Entry 
+        {
+            get { return entry; }
+            set 
+            { 
+                entry = value;
+                ModifiedDTime = DateTime.Now;
+            }
+        }
         public int Id { get; private set; }
+        public DateTime ModifiedDTime { get; private set; }
+
+        private string entry;
         private static int Id_value = 0;
+
 
         public Diary()
         {
-            CategoryIDs = new List<int>();
+            CategoryIDs = new HashSet<int>();
+
             Id = Id_value;
             Id_value++;
         }
