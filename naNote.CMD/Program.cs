@@ -15,6 +15,7 @@ namespace Nanote.CMD
             // Payload for testing
             string payload;
             string catList;
+            Catalog catalog = new Catalog();
 
             Console.WriteLine("Console Application time!");
             while (true)
@@ -23,27 +24,13 @@ namespace Nanote.CMD
                 Console.WriteLine("Enter your commands");
                 Console.Write(">");
                 payload = Console.ReadLine();
-                Console.WriteLine($"Let's parse: {payload}");
-
-                Catalog catalog = new Catalog(true);
+                
                 Parser parsed = new Parser(payload, catalog);
 
-                var result = Act(parsed.Action, catalog, parsed.Categories, payload);
-
-                if (parsed.Categories == null)
-                {
-                    catList = "No categories!";
-                }
-                else
-                {
-                    catList = string.Join(", ", parsed.Categories.Select(x => x.Name));
-                }
+                var result = Act(parsed.Action, catalog, parsed.Categories, parsed.Payload);
 
                 Console.WriteLine(result);
-                //Console.WriteLine($"Action: {parsed.Action}");
-                //Console.WriteLine($"Payload: {parsed.Payload}");
-                //Console.WriteLine($"Categories: {catList}");
-                //Console.WriteLine("Press any key to continue.");
+                Console.WriteLine("Press any key to continue!");
 
                 Console.ReadKey();
             }
@@ -62,6 +49,9 @@ namespace Nanote.CMD
                     return "reminder! Not yet implemented though.";
                 case "list":
                     return ListActions.List(catalog, payload).ToString();
+                case "save":
+                    Access.Save(catalog);
+                    return "Saved!";
                 default:
                     return "Action not found!";
             }

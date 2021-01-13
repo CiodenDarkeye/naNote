@@ -13,14 +13,8 @@ namespace Nanote.Logic.Tests
         public void ActionTest()
         {
             //Assign
+            Catalog catalog = CatalogBuilder.BuildTestCatalog();
             
-            var catalog = new Catalog();
-            var newCategory = new Category() { Name = "Work" };
-            var diary1 = new Diary(){Entry = "Helper time!", Categories = new List<Category>() { newCategory } };
-            var diary2 = new Diary(){ Entry = "Oh boy!", Categories = new List<Category>() { newCategory } };
-            var diary3 = new Diary(){ Entry = "Even better!", Categories = new List<Category>() { newCategory } };
-            catalog.CategoryList.Add(newCategory);
-            catalog.DiaryList.AddRange(new List<Diary>() { diary1, diary2, diary3 });
 
             //Act
             var newList = ListActions.List(catalog, "list diary");

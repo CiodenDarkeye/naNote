@@ -6,7 +6,7 @@ using Nanote.Logic.Model;
 using System.Linq;
 using Nanote.Logic.Data;
 
-namespace Nanote.LogicTests
+namespace Nanote.Logic.Tests
 {
     public class ParserTests
     {
