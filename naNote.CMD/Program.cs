@@ -36,7 +36,7 @@ namespace Nanote.CMD
             }
         }
 
-        public static string Act(string Action, Catalog catalog, List<Category> categories, string payload)
+        public static string Act(string Action, Catalog catalog, List<int> categories, string payload)
         {
             switch (Action.ToLower())
             {

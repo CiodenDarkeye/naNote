@@ -12,14 +12,14 @@ namespace Nanote.Logic.Actions
     {
         public static void AddDiary(
             Catalog catalog, 
-            List<Category> categories,
+            List<int> categories,
             String payload)
         {
             var newEntry = new Diary()
             {
                 Entry = payload,
             };
-            newEntry.Categories.AddRange(categories);
+            newEntry.CategoryIDs.AddRange(categories);
             catalog.DiaryList.Add(newEntry);
         }
     }

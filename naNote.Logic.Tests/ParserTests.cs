@@ -23,13 +23,14 @@ namespace Nanote.Logic.Tests
         //When
         catalog.CategoryList.Add(new Category(){Name="Work"});
         var testParser = new Parser(parserPass, catalog);
+        int testCategoryId = catalog.CategoryList.First(p => p.Name == "Work").Id;
 
         //Then
 
         // Check that the inputted action matches the outputted action
         Assert.Equal(testParser.Action, testAction);
         // Check that the category matches
-        Assert.True(testParser.Categories.FirstOrDefault(p => p.Name == testCategory.TrimStart('#')) != null);
+        Assert.True(testParser.Categories[0] == testCategoryId);
         // Check that the payload works as well
         Assert.Equal(testParser.Payload, testPayload);
         }
@@ -37,6 +38,7 @@ namespace Nanote.Logic.Tests
         [Fact]
         public void HashesAreStripped()
         {
+        //This tests whether or not hashes are stripped from stored category names.
         //Given
         Catalog catalog = new Catalog();
         string parserPass = "diary #help wow, what a crazy week this has been! #wow #worldofwarcraft";
@@ -46,7 +48,7 @@ namespace Nanote.Logic.Tests
         var testParser = new Parser(parserPass, catalog);
 
         //Then
-        Assert.False(testParser.Categories.FirstOrDefault().Name.Contains('#'));
+        Assert.False(catalog.CategoryList.FirstOrDefault().Name.Contains('#'));
         }
     }
 }

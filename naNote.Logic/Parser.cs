@@ -19,12 +19,12 @@ namespace Nanote.Logic
         {
             _toParse = toParse;
             _catalog = catalog;
-            Categories = new List<Category>();
+            Categories = new List<int>();
             ParseText();
         }
 
         public string Action { get; set; }
-        public List<Category> Categories { get; set; }
+        public List<int> Categories { get; set; }
         public string Payload { get; set; }
 
         private void ParseText()
@@ -40,12 +40,18 @@ namespace Nanote.Logic
                 else if(word[0] == '#')
                 {
                     // If it's a category, check to see if the category exists, then add it
-                    var cat = new Category() { Name = word.TrimStart('#')};
-                    if (!_catalog.CategoryList.Any(p => p.Name == cat.Name))
+                    var _categoryName = word.TrimStart('#');
+
+                    if (!_catalog.CategoryList.Any(p => p.Name == _categoryName))
                     {
+                        var cat = new Category() { Name = _categoryName };
                         _catalog.CategoryList.Add(cat);
+                        Categories.Add(cat.Id);
                     }
-                    Categories.Add(cat);
+                    else
+                    {
+                        Categories.Add(_catalog.CategoryList.First(p => p.Name == _categoryName).Id);
+                    }
                 }
                 else
                 {

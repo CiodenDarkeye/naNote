@@ -4,12 +4,12 @@ namespace Nanote.Logic.Model
 {
     public class Diary: BaseEntry
     {
-        public List<Category> Categories { get; set; }
+        public List<int> CategoryIDs{ get; set; }
         public string Entry { get; set; }
 
         public Diary()
         {
-            Categories = new List<Category>();
+            CategoryIDs = new List<int>();
         }
     }
 }
