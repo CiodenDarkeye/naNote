@@ -9,17 +9,17 @@ namespace Nanote.Logic.Tests
     public class ModelTests
     {
         [Fact]
-        public void CatalogObjectsDoNotShareIds()
+        public void SameCatalogObjectsDoNotShareIDs()
         {
             // Assign
             Catalog catalog = new Catalog();
 
             // Act
             catalog.CategoryList.Add(new Category() { Name = "Work" });
-            catalog.DiaryList.Add(new Diary() { Entry = "Wow, what a day!" });
+            catalog.CategoryList.Add(new Category() { Name = "Play" });
 
             // Assert
-            Assert.NotEqual(catalog.DiaryList.First().Id, catalog.CategoryList.First().Id);
+            Assert.NotEqual(catalog.CategoryList.Last().Id, catalog.CategoryList.First().Id);
         }
     }
 }

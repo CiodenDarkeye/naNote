@@ -8,13 +8,10 @@ using System.Collections.Generic;
 
 namespace Nanote.CMD
 {
-    class Program
+    class Program : CMDActions
     {
         static void Main(string[] args)
         {
-            // Payload for testing
-            string payload;
-            string catList;
             Catalog catalog = new Catalog();
 
             Console.WriteLine("Console Application time!");
@@ -23,7 +20,7 @@ namespace Nanote.CMD
                 Console.Clear();
                 Console.WriteLine("Enter your commands");
                 Console.Write(">");
-                payload = Console.ReadLine();
+                string payload = Console.ReadLine();
                 
                 Parser parsed = new Parser(payload, catalog);
 
@@ -35,29 +32,5 @@ namespace Nanote.CMD
                 Console.ReadKey();
             }
         }
-
-        public static string Act(string Action, Catalog catalog, List<int> categories, string payload)
-        {
-            switch (Action.ToLower())
-            {
-                case "diary":
-                    DiaryActions.AddDiary(catalog, categories, payload);
-                    return "diary updated!";
-                case "note":
-                    return "note selected! Not yet implemented though.";
-                case "reminder":
-                    return "reminder! Not yet implemented though.";
-                case "list":
-                    return ListActions.List(catalog, payload).ToString();
-                case "save":
-                    Access.Save(catalog);
-                    return "Saved!";
-                default:
-                    return "Action not found!";
-            }
-        }
-
-
-
     }
 }

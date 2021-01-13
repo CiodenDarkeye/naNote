@@ -6,10 +6,14 @@ namespace Nanote.Logic.Model
     {
         public List<int> CategoryIDs{ get; set; }
         public string Entry { get; set; }
+        public int Id { get; private set; }
+        private static int Id_value = 0;
 
         public Diary()
         {
             CategoryIDs = new List<int>();
+            Id = Id_value;
+            Id_value++;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Nanote.Logic.Tests
     public class ParserTests
     {
         [Fact]
-        public void SimpleParse()
+        public void TestParsingIsWorking()
         {
         //Given
         Catalog catalog = new Catalog();
