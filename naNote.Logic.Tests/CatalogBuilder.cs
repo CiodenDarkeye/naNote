@@ -14,13 +14,26 @@ namespace Nanote.Logic.Tests
         public static Catalog BuildTestCatalog()
         {
             Catalog catalog = new Catalog();
-            var parser1 = new Parser("diary #bug #test1 this is a test of the first parser #bug2", catalog);
-            var parser2 = new Parser("diary #notepad #test2 test is the second line", catalog);
-            var parser3 = new Parser("diary #bug #test3 this #bug is a #bug test of #bug the first #bug parser #bug2", catalog);
+            Parser[] pArr = new Parser[6];
 
-            DiaryActions.AddDiary(catalog, parser1.Categories, parser1.Payload);
-            DiaryActions.AddDiary(catalog, parser2.Categories, parser2.Payload);
-            DiaryActions.AddDiary(catalog, parser3.Categories, parser3.Payload);
+            pArr[0] = new Parser("diary #bug #test1 this is a test of the first parser #bug2", catalog);
+            pArr[1] = new Parser("diary #notepad #test2 test is the second line", catalog);
+            pArr[2] = new Parser("diary #bug #test3 this #bug is a #bug test of #bug the first #bug parser #bug2", catalog);
+            pArr[3] = new Parser("note #bug #note1 this #bug is a #bug test of #bug the first #bug parser #bug2", catalog);
+            pArr[4] = new Parser("note #bug #note2 what #bug what #bug wow #bug the first #bug parser #bug2", catalog);
+            pArr[5] = new Parser("note #bug #note3", catalog);
+
+            foreach (var parse in pArr)
+            {
+                if (parse.Action == "note")
+                {
+                    NoteActions.AddNote(catalog, parse.Categories, parse.Payload);
+                }
+                else if (parse.Action == "diary")
+                {
+                    DiaryActions.AddDiary(catalog, parse.Categories, parse.Payload);
+                }
+            }
 
             return catalog;
         }

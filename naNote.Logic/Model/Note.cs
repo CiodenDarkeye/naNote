@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Nanote.Logic.Model
 {
-    public class Note
+    public class Note : BaseEntry
     {
         public List<int> CategoryIDs{ get; set; }
         public string Entry { get; set; }

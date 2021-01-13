@@ -40,5 +40,22 @@ namespace Nanote.Logic.Tests
             Assert.Equal("Note #1", catalog.NoteList.First().Entry);
             Assert.Equal(new List<int>() { 4, 5, 6 }, catalog.NoteList.Last().CategoryIDs);
         }
+
+        [Fact]
+        public void ListTests()
+        {
+            // Assign
+            Catalog catalog = CatalogBuilder.BuildTestCatalog();
+
+            // Act
+            List<string> NoteList = ListActions.List(catalog, "list note");
+            List<string> DiaryList = ListActions.List(catalog, "list diary");
+            List<string> CategoryList = ListActions.List(catalog, "list category");
+
+            // Assert
+            Assert.Equal(3, NoteList.Count);
+            Assert.Equal(3, DiaryList.Count);
+            Assert.Equal(9, CategoryList.Count);
+        }
     }
 }
