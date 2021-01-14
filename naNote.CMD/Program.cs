@@ -15,18 +15,18 @@ namespace Nanote.CMD
             Catalog catalog = new Catalog();
 
             Console.WriteLine("Console Application time!");
+            Console.WriteLine("Enter your commands");
             while (true)
             {
                 //Console.Clear();
-                Console.WriteLine("Enter your commands");
-                Console.Write(">");
+                Console.Write("> ");
                 string payload = Console.ReadLine();
                 
                 Parser parsed = new Parser(payload, catalog);
 
                 var result = Act(parsed.Action, catalog, parsed.Categories, parsed.Payload);
 
-                Console.WriteLine(result);
+                Console.WriteLine(result+"\n");
                 System.Threading.Thread.Sleep(1000);
             }
         }

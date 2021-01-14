@@ -19,13 +19,17 @@ namespace Nanote.Logic.Actions
 
             if (catalog.DiaryList.Any(p => p.CreatedDtime.Date == DateTime.Today))
             {
+                // If there is an existing diary, append to it.
                 var diaryToEdit = catalog.DiaryList.Last(p => p.CreatedDtime.Date == DateTime.Today);
                 diaryToEdit.CategoryIDs.UnionWith(categories);
-                diaryToEdit.Entry += $"\n{DateTime.Now.ToShortDateString()}: {payload}";
+                diaryToEdit.Entry += $"\n{DateTime.Now.ToShortTimeString()}: {payload}";
             }
             else
             {
-                var newEntry = new Diary() {Entry = $"{DateTime.Now.ToShortDateString()}: {payload}" };
+                // If there isn't, make a new one.
+                var newEntry = new Diary() {
+                    Entry = $"Diary: {DateTime.Now.ToShortDateString()}\n\n{DateTime.Now.ToShortTimeString()}: {payload}" 
+                };
                 newEntry.CategoryIDs.UnionWith(categories);
                 catalog.DiaryList.Add(newEntry);
             }   
