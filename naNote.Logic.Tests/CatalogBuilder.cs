@@ -1,5 +1,4 @@
-﻿using naNote.Logic.Actions;
-using naNote.Logic.Data;
+﻿using naNote.Logic.Data;
 using naNote.Logic.Model;
 using System;
 using System.Collections.Generic;
@@ -11,27 +10,40 @@ namespace naNote.Logic.Tests
 {
     public static class CatalogBuilder
     {
+        public static string[] Payloads { get; set; } = new string[6] 
+        {
+            "diary #bug #test1 this is a test of the first parser #bug2",
+            "diary #notepad #test2 test is the second line",
+            "diary #bug #test3 this #bug is a #bug test of #bug the first #bug parser #bug2",
+            "note #bug #note1 this #bug is a #bug test of #bug the first #bug parser #bug2",
+            "note #bug #note2 what #bug what #bug wow #bug the first #bug parser #bug2",
+            "note #bug #note3"
+        };
+
+
+        
+
         public static Catalog BuildTestCatalog()
         {
             Catalog catalog = new Catalog();
             Parser[] pArr = new Parser[6];
 
-            pArr[0] = new Parser("diary #bug #test1 this is a test of the first parser #bug2", catalog);
-            pArr[1] = new Parser("diary #notepad #test2 test is the second line", catalog);
-            pArr[2] = new Parser("diary #bug #test3 this #bug is a #bug test of #bug the first #bug parser #bug2", catalog);
-            pArr[3] = new Parser("note #bug #note1 this #bug is a #bug test of #bug the first #bug parser #bug2", catalog);
-            pArr[4] = new Parser("note #bug #note2 what #bug what #bug wow #bug the first #bug parser #bug2", catalog);
-            pArr[5] = new Parser("note #bug #note3", catalog);
+            pArr[0] = new Parser(Payloads[0], catalog);
+            pArr[1] = new Parser(Payloads[1], catalog);
+            pArr[2] = new Parser(Payloads[2], catalog);
+            pArr[3] = new Parser(Payloads[3], catalog);
+            pArr[4] = new Parser(Payloads[4], catalog);
+            pArr[5] = new Parser(Payloads[5], catalog);
 
             foreach (var parse in pArr)
             {
                 if (parse.Action == "note")
                 {
-                    NoteActions.AddNote(catalog, parse.Categories, parse.Payload);
+                    catalog.AddNote(parse.Categories, parse.Payload);
                 }
                 else if (parse.Action == "diary")
                 {
-                    DiaryActions.AddDiary(catalog, parse.Categories, parse.Payload);
+                    catalog.AddDiary(parse.Categories, parse.Payload);
                 }
             }
 

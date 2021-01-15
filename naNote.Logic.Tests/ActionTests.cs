@@ -1,5 +1,4 @@
-﻿using naNote.Logic.Actions;
-using naNote.Logic.Data;
+﻿using naNote.Logic.Data;
 using naNote.Logic.Model;
 using System;
 using System.Collections.Generic;
@@ -17,8 +16,8 @@ namespace naNote.Logic.Tests
             Catalog catalog = new Catalog();
 
             //Act
-            DiaryActions.AddDiary(catalog, new HashSet<int>() { 0, 1, 2 }, "Diary #1");
-            DiaryActions.AddDiary(catalog, new HashSet<int>() { 4, 5, 6 }, "Diary #2");
+            catalog.AddDiary(new HashSet<int>() { 0, 1, 2 }, "Diary #1");
+            catalog.AddDiary(new HashSet<int>() { 4, 5, 6 }, "Diary #2");
 
             //Assert
             Assert.Contains("Diary #1", catalog.DiaryList.First().Entry);
@@ -33,8 +32,8 @@ namespace naNote.Logic.Tests
             Catalog catalog = new Catalog();
 
             //Act
-            NoteActions.AddNote(catalog, new HashSet<int>() { 0, 1, 2 }, "Note #1");
-            NoteActions.AddNote(catalog, new HashSet<int>() { 4, 5, 6 }, "Note #2");
+            catalog.AddNote(new HashSet<int>() { 0, 1, 2 }, "Note #1");
+            catalog.AddNote(new HashSet<int>() { 4, 5, 6 }, "Note #2");
 
             //Assert
             Assert.Equal("Note #1", catalog.NoteList.First().Entry);
@@ -48,9 +47,9 @@ namespace naNote.Logic.Tests
             Catalog catalog = CatalogBuilder.BuildTestCatalog();
 
             // Act
-            List<string> NoteList = ListActions.List(catalog, "note");
-            List<string> DiaryList = ListActions.List(catalog, "diary");
-            List<string> CategoryList = ListActions.List(catalog, "category");
+            List<string> NoteList = catalog.ListText("note");
+            List<string> DiaryList = catalog.ListText("diary");
+            List<string> CategoryList = catalog.ListText("category");
 
             // Assert
             Assert.Equal(3, NoteList.Count);

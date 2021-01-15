@@ -1,5 +1,4 @@
-﻿using naNote.Logic.Actions;
-using naNote.Logic.Data;
+﻿using naNote.Logic.Data;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -8,16 +7,16 @@ namespace naNote.CMD
 {
     internal class CMDActions
     {
-        public static string Act(string Action, Catalog catalog, HashSet<int> categories, string payload)
+        public static string Act(string action, Catalog catalog, HashSet<int> categories, string payload)
         {
-            switch (Action.ToLower())
+            switch (action.ToLower())
             {
                 case "diary":
-                    DiaryActions.AddDiary(catalog, categories, payload);
+                    catalog.AddDiary(categories, payload);
                     return "diary updated!";
 
                 case "note":
-                    NoteActions.AddNote(catalog, categories, payload);
+                    catalog.AddNote(categories, payload);
                     return "note added!";
 
                 case "reminder":
@@ -25,7 +24,7 @@ namespace naNote.CMD
 
                 case "list":
                     var retString = "";
-                    foreach (var entry in ListActions.List(catalog, payload))
+                    foreach (var entry in catalog.ListText(action))
                     {
                         retString += entry;
                     }

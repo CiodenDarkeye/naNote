@@ -2,7 +2,6 @@
 using System.Linq;
 using naNote.Logic;
 using naNote.Logic.Data;
-using naNote.Logic.Actions;
 using naNote.Logic.Model;
 using System.Collections.Generic;
 

@@ -21,7 +21,6 @@ namespace naNote.Logic.Model
         private string entry;
         private static int Id_value = 0;
 
-
         public Diary()
         {
             CategoryIDs = new HashSet<int>();

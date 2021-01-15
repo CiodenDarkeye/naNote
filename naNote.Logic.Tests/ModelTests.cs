@@ -21,5 +21,18 @@ namespace naNote.Logic.Tests
             // Assert
             Assert.NotEqual(catalog.CategoryList.Last().Id, catalog.CategoryList.First().Id);
         }
+
+        [Fact]
+        public void CatalogBreaker()
+        {
+            // Assign
+            Catalog catalog = CatalogBuilder.BuildTestCatalog();
+
+            // Act
+            var retStr = catalog.ListText("diary");
+
+            // Assert
+            Assert.True(retStr.Count > 0);
+        }
     }
 }
