@@ -11,7 +11,7 @@ namespace naNote.Logic.Actions
     public static class NoteActions
     {
         public static void AddNote(
-            Catalog catalog, 
+            Catalog catalog,
             HashSet<int> categories,
             String payload)
         {
