@@ -1,5 +1,5 @@
-﻿using Nanote.Logic.Data;
-using Nanote.Logic.Model;
+﻿using naNote.Logic.Data;
+using naNote.Logic.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Nanote.Logic.Tests
+namespace naNote.Logic.Tests
 {
     public class FileTests
     {

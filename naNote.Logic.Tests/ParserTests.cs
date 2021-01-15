@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Xunit;
-using Nanote.Logic;
-using Nanote.Logic.Model;
+using naNote.Logic;
+using naNote.Logic.Model;
 using System.Linq;
-using Nanote.Logic.Data;
+using naNote.Logic.Data;
 
-namespace Nanote.Logic.Tests
+namespace naNote.Logic.Tests
 {
     public class ParserTests
     {
@@ -30,7 +30,7 @@ namespace Nanote.Logic.Tests
         // Check that the inputted action matches the outputted action
         Assert.Equal(testParser.Action, testAction);
         // Check that the category matches
-        Assert.Contains(0, testParser.Categories);
+        Assert.Contains(catalog.CategoryList.FirstOrDefault(p => p.Name == "Work").Id, testParser.Categories);
         // Check that the payload works as well
         Assert.Equal(testParser.Payload, testPayload);
         }
@@ -45,7 +45,7 @@ namespace Nanote.Logic.Tests
 
         //When
         catalog.CategoryList.Add(new Category(){Name="Work"});
-        var testParser = new Parser(parserPass, catalog);
+        // var testParser = new Parser(parserPass, catalog);
 
         //Then
         Assert.False(catalog.CategoryList.FirstOrDefault().Name.Contains('#'));

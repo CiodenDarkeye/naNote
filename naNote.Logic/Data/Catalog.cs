@@ -1,8 +1,8 @@
-using Nanote.Logic.Model;
+using naNote.Logic.Model;
 using System.Collections.Generic;
-using Nanote.Logic;
+using naNote.Logic;
 
-namespace Nanote.Logic.Data
+namespace naNote.Logic.Data
 {
     public class Catalog
     {

@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>Nanote.Logic</AssemblyName>
-    <RootNamespace>Nanote.Logic</RootNamespace>
+    <AssemblyName>naNote.Logic</AssemblyName>
+    <RootNamespace>naNote.Logic</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

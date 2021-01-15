@@ -1,10 +1,10 @@
 ﻿using Xunit;
-using Nanote.Logic;
-using Nanote.Logic.Model;
+using naNote.Logic;
+using naNote.Logic.Model;
 using System.Linq;
-using Nanote.Logic.Data;
+using naNote.Logic.Data;
 
-namespace Nanote.Logic.Tests
+namespace naNote.Logic.Tests
 {
     public class ModelTests
     {

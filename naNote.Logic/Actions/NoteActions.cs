@@ -1,12 +1,12 @@
-﻿using Nanote.Logic.Data;
-using Nanote.Logic.Model;
+﻿using naNote.Logic.Data;
+using naNote.Logic.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nanote.Logic.Actions
+namespace naNote.Logic.Actions
 {
     public static class NoteActions
     {

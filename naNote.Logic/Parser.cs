@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Nanote.Logic.Model;
-using Nanote.Logic.Actions;
-using Nanote.Logic.Data;
+using naNote.Logic.Model;
+using naNote.Logic.Actions;
+using naNote.Logic.Data;
 
-namespace Nanote.Logic
+namespace naNote.Logic
 {
     public class Parser
     {

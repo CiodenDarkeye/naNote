@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Nanote.Logic.Data
+namespace naNote.Logic.Data
 {
     public static class Access
     {

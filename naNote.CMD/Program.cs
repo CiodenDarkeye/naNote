@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
-using Nanote.Logic;
-using Nanote.Logic.Data;
-using Nanote.Logic.Actions;
-using Nanote.Logic.Model;
+using naNote.Logic;
+using naNote.Logic.Data;
+using naNote.Logic.Actions;
+using naNote.Logic.Model;
 using System.Collections.Generic;
 
-namespace Nanote.CMD
+namespace naNote.CMD
 {
     class Program : CMDActions
     {

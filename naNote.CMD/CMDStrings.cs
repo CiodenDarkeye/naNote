@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Nanote.CMD
+namespace naNote.CMD
 {
     public static class CMDStrings
     {

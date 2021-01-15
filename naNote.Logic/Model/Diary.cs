@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Nanote.Logic.Model
+namespace naNote.Logic.Model
 {
     public class Diary: BaseEntry
     {

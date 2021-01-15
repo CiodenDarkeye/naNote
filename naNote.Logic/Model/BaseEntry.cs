@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nanote.Logic.Model
+namespace naNote.Logic.Model
 {
     public class BaseEntry
     {

@@ -1,4 +1,4 @@
-namespace Nanote.Logic.Model
+namespace naNote.Logic.Model
 {
     public class Category : BaseEntry
     {

@@ -1,10 +1,10 @@
-﻿using Nanote.Logic.Actions;
-using Nanote.Logic.Data;
+﻿using naNote.Logic.Actions;
+using naNote.Logic.Data;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Nanote.CMD
+namespace naNote.CMD
 {
     internal class CMDActions
     {
@@ -44,7 +44,7 @@ namespace Nanote.CMD
                     return "You won't see this!";
 
                 case "help":
-                    var type = Type.GetType("Nanote.CMD.CMDStrings");
+                    var type = Type.GetType("naNote.CMD.CMDStrings");
                     var field = type?.GetField("Help"+payload);
                     var value = field?.GetValue(null);
                     if (value != null)
