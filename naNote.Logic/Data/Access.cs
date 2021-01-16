@@ -6,8 +6,10 @@ namespace naNote.Logic.Data
 {
     public static class Access
     {
+        // TODO: Possibly replace this with a config file or something?
         private const string fileName = "naNoteDB.json";
         private const string filePath = @"\naNote\";
+
         private static string jsonSaveFile = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + filePath + fileName;
 
         public static void Save(Catalog catalogToSave)
