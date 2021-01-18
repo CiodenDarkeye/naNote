@@ -30,7 +30,7 @@ namespace naNote.Logic
         {
             StringBuilder payloadBuilder = new StringBuilder();
 
-            foreach (string word in _toParse.Split(' '))
+            foreach (string word in _toParse.Trim().Split(' '))
             {
                 if(String.IsNullOrEmpty(Action))
                 {

@@ -54,26 +54,26 @@ namespace naNote.Logic.Data
 
         public List<string> ListText(string action)
         {
-            List<string> _retList = new List<string>();
             // TODO: Figure out how I can make this list more of an ongoing iterable thing.
-            switch(action)
+            var _retList = new List<string>();
+            switch (action)
             {
                 case "diary":
-                    foreach (Diary diary in DiaryList.TakeLast(10))
+                    foreach (Diary diary in DiaryList.AsEnumerable().Reverse())
                     {
                         _retList.Add($"Entry #{diary.Id}, created at {diary.CreatedDtime.ToShortDateString()}\n" +
                             $"{diary.Entry}");
                     }
                     break;
                 case "note":
-                    foreach (Note note in NoteList.TakeLast(10))
+                    foreach (Note note in NoteList.AsEnumerable().Reverse())
                     {
                         _retList.Add($"Entry #{note.Id} at {note.CreatedDtime.ToShortDateString()}" +
                             $"{note.Entry}");
                     }
                     break;
                 case "category":
-                    foreach (var category in CategoryList.TakeLast(10))
+                    foreach (var category in CategoryList.AsEnumerable().Reverse())
                     {
                         _retList.Add($"Entry #{category.Id} at {category.CreatedDtime.ToShortDateString()}" +
                             $"{category.Name}");

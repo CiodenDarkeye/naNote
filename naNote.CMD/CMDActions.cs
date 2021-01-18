@@ -1,6 +1,7 @@
 ﻿using naNote.Logic.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace naNote.CMD
@@ -24,12 +25,23 @@ namespace naNote.CMD
                     return "reminder! Not yet implemented though.";
 
                 case "list":
-                    var retString = "";
-                    foreach (var entry in catalog.ListText(action))
+
+                    var returnTake = 3;
+                    var returnSkip = 0;
+                    while (true)
                     {
-                        retString += entry;
+                        foreach (var item in catalog.ListText(payload).Skip(returnSkip).Take(returnTake))
+                        {
+                            Console.WriteLine(item);
+                        }
+                        Console.WriteLine("Press N to continue, or any other key to return.");
+                        if (Console.ReadKey(true).KeyChar != 'n')
+                        {
+                            return "Returning to main menu.";
+                        }
+                        returnSkip += returnTake;
                     }
-                    return retString;
+                    
 
                 case "save":
                     Access.Save(catalog);
