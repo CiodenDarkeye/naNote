@@ -7,6 +7,7 @@ namespace naNote.CMD
 {
     internal class CMDActions
     {
+        //TODO: Add a tab-completion helper thing here.
         public static string Act(string action, Catalog catalog, HashSet<int> categories, string payload)
         {
             switch (action.ToLower())
@@ -37,7 +38,7 @@ namespace naNote.CMD
                 case "load":
                     catalog = Access.Load();
                     return "Load complete!";
-
+                case "quit":
                 case "exit":
                     Environment.Exit(0);
                     return "You won't see this!";

@@ -55,7 +55,7 @@ namespace naNote.Logic.Data
         public List<string> ListText(string action)
         {
             List<string> _retList = new List<string>();
-            
+            // TODO: Figure out how I can make this list more of an ongoing iterable thing.
             switch(action)
             {
                 case "diary":
