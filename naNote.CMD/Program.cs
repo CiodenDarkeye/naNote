@@ -26,7 +26,7 @@ namespace naNote.CMD
                 var result = Act(parsed.Action, catalog, parsed.Categories, parsed.Payload);
 
                 Console.WriteLine(result+"\n");
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(250);
             }
         }
     }
