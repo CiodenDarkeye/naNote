@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "naNote.Logic", "naNote.Logi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "naNote.Logic.Tests", "naNote.Logic.Tests\naNote.Logic.Tests.csproj", "{ADE67748-6F4F-43EB-BF6B-33D186B6E2CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoremGenerator", "..\LoremGenerator\LoremGenerator\LoremGenerator.csproj", "{2ADD082A-1DA8-41EA-A47F-A6D084926CA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoremGenerator.Tests", "..\LoremGenerator\LoremGenerator.Tests\LoremGenerator.Tests.csproj", "{2A25710C-99AF-4C51-BEC8-169A03EE43BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{ADE67748-6F4F-43EB-BF6B-33D186B6E2CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADE67748-6F4F-43EB-BF6B-33D186B6E2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADE67748-6F4F-43EB-BF6B-33D186B6E2CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ADD082A-1DA8-41EA-A47F-A6D084926CA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ADD082A-1DA8-41EA-A47F-A6D084926CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ADD082A-1DA8-41EA-A47F-A6D084926CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ADD082A-1DA8-41EA-A47F-A6D084926CA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A25710C-99AF-4C51-BEC8-169A03EE43BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A25710C-99AF-4C51-BEC8-169A03EE43BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A25710C-99AF-4C51-BEC8-169A03EE43BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A25710C-99AF-4C51-BEC8-169A03EE43BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

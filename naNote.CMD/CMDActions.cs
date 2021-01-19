@@ -25,12 +25,15 @@ namespace naNote.CMD
                     return "reminder! Not yet implemented though.";
 
                 case "list":
+                    // TODO: Can I replace this with a yield return statement instead of using Linq?
+                    // Seems like it would be more effective but I'd need to figure it out.
 
                     var returnTake = 3;
                     var returnSkip = 0;
+                    var _catalogList = catalog.ListText(payload);
                     while (true)
                     {
-                        foreach (var item in catalog.ListText(payload).Skip(returnSkip).Take(returnTake))
+                        foreach (var item in _catalogList.Skip(returnSkip).Take(returnTake))
                         {
                             Console.WriteLine(item);
                         }
