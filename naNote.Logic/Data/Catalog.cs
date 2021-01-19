@@ -68,14 +68,14 @@ namespace naNote.Logic.Data
                 case "note":
                     foreach (Note note in NoteList.AsEnumerable().Reverse())
                     {
-                        _retList.Add($"Entry #{note.Id} at {note.CreatedDtime.ToShortDateString()}" +
+                        _retList.Add($"Entry #{note.Id} at {note.CreatedDtime.ToShortDateString()} " +
                             $"{note.Entry}");
                     }
                     break;
                 case "category":
                     foreach (var category in CategoryList.AsEnumerable().Reverse())
                     {
-                        _retList.Add($"Entry #{category.Id} at {category.CreatedDtime.ToShortDateString()}" +
+                        _retList.Add($"Entry #{category.Id} at {category.CreatedDtime.ToShortDateString()} " +
                             $"{category.Name}");
                     }
                     break;

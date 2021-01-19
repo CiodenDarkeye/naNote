@@ -1,7 +1,10 @@
 ﻿using naNote.Logic.Data;
+using naNote.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using LoremGenerator;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace naNote.CMD
@@ -44,7 +47,17 @@ namespace naNote.CMD
                         }
                         returnSkip += returnTake;
                     }
-                    
+
+                case "debug":
+                    var watch = new Stopwatch();
+                    watch.Start();
+                    for (int i = 0; i < 10000; i++)
+                    {
+                        Parser _parser = new Parser(Generator.GenerateEntry("note", 2, 10, 2, 10), catalog);
+                        catalog.AddNote(_parser.Categories, _parser.Payload);
+                    }
+                    watch.Stop();
+                    return $"Creation of 10,000 notes completed in {watch.ElapsedMilliseconds} ms";
 
                 case "save":
                     Access.Save(catalog);
