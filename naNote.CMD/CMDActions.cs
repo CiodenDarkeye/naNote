@@ -116,7 +116,7 @@ namespace naNote.CMD
                     foreach (var note in catalog.NoteList.AsEnumerable().Reverse())
                     {
                         _returnList.Add(
-                            $"Entry #{note.Id} at {note.CreatedDtime.ToShortDateString()} " +
+                            $"Entry #{note.Id}, created at {note.CreatedDtime.ToShortDateString()} " +
                             $"{note.Entry}\n" +
                             $"Categories: { GetCategoryList(note.CategoryIDs, catalog)}");
                     }
@@ -124,7 +124,8 @@ namespace naNote.CMD
                 case "category":
                     foreach (var category in catalog.CategoryList.AsEnumerable().Reverse())
                     {
-                        _returnList.Add($"Entry #{category.Id} at {category.CreatedDtime.ToShortDateString()} " +
+                        _returnList.Add(
+                            $"Entry #{category.Id}, created at {category.CreatedDtime.ToShortDateString()} " +
                             $"{category.Name}");
                     }
                     break;
