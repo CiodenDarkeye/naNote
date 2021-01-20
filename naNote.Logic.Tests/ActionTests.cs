@@ -24,7 +24,6 @@ namespace naNote.Logic.Tests
             Assert.Equal(new HashSet<int>() {0,1,2,4,5,6}, catalog.DiaryList.Last().CategoryIDs);
 
         }
-
         [Fact]
         public void NoteTest()
         {
@@ -38,23 +37,6 @@ namespace naNote.Logic.Tests
             //Assert
             Assert.Equal("Note #1", catalog.NoteList.First().Entry);
             Assert.Equal(new List<int>() { 4, 5, 6 }, catalog.NoteList.Last().CategoryIDs);
-        }
-
-        [Fact]
-        public void ListTests()
-        {
-            // Assign
-            Catalog catalog = CatalogBuilder.BuildTestCatalog();
-
-            // Act
-            List<string> NoteList = catalog.ListText("note");
-            List<string> DiaryList = catalog.ListText("diary");
-            List<string> CategoryList = catalog.ListText("category");
-
-            // Assert
-            Assert.Equal(3, NoteList.Count);
-            Assert.Single(DiaryList);
-            Assert.Equal(9, CategoryList.Count);
         }
     }
 }

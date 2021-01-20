@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 namespace naNote.Logic.Model
 {
-    public class Diary: BaseEntry
+    public class Diary : BaseEntry
     {
-        public HashSet<int> CategoryIDs{ get; set; }
-        public string Entry 
+        public HashSet<int> CategoryIDs { get; set; }
+        public string Entry
         {
             get { return entry; }
-            set 
-            { 
+            set
+            {
                 entry = value;
                 ModifiedDTime = DateTime.Now;
             }

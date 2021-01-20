@@ -6,6 +6,7 @@ using System.Linq;
 using LoremGenerator;
 using System.Diagnostics;
 using System.Reflection;
+using System.Text;
 
 namespace naNote.CMD
 {
@@ -33,7 +34,14 @@ namespace naNote.CMD
 
                     var returnTake = 10;
                     var returnSkip = 0;
-                    var _catalogList = catalog.ListText(payload);
+                    var validOptions = new string[3] { "diary", "note", "category" };
+                    if (!validOptions.Contains(payload))
+                    {
+                        return CMDStrings.CommandNotFound;
+                    }
+
+                    var _catalogList = BuildTextList(payload, catalog);
+
                     while (true)
                     {
                         foreach (var item in _catalogList.Skip(returnSkip).Take(returnTake))
@@ -88,5 +96,56 @@ namespace naNote.CMD
                     return CMDStrings.CommandNotFound;
             }
         }
+
+        private static List<string> BuildTextList(string action, Catalog catalog)
+        {
+            var _returnList = new List<string>();
+
+            switch (action.ToLower())
+            {
+                case "diary":
+                    foreach (var diary in catalog.DiaryList.AsEnumerable().Reverse())
+                    {
+                        _returnList.Add(
+                            $"Entry #{diary.Id}, created at {diary.CreatedDtime.ToShortDateString()}\n" +
+                            $"{diary.Entry}\n" +
+                            $"Categories: { GetCategoryList(diary.CategoryIDs, catalog) }");
+                    }
+                    break;
+                case "note":
+                    foreach (var note in catalog.NoteList.AsEnumerable().Reverse())
+                    {
+                        _returnList.Add(
+                            $"Entry #{note.Id} at {note.CreatedDtime.ToShortDateString()} " +
+                            $"{note.Entry}\n" +
+                            $"Categories: { GetCategoryList(note.CategoryIDs, catalog)}");
+                    }
+                    break;
+                case "category":
+                    foreach (var category in catalog.CategoryList.AsEnumerable().Reverse())
+                    {
+                        _returnList.Add($"Entry #{category.Id} at {category.CreatedDtime.ToShortDateString()} " +
+                            $"{category.Name}");
+                    }
+                    break;
+                default:
+                    _returnList.Add(CMDStrings.CommandNotFound);
+                    break;
+            }
+
+            return _returnList;
+        }
+        private static string GetCategoryList(HashSet<int> categoryList, Catalog catalog)
+        {
+            var _catArr = new Queue<string>();
+            foreach (var categoryID in categoryList)
+            {
+                string _name = catalog.CategoryList.FirstOrDefault(p => p.Id == categoryID).Name;
+                _catArr.Enqueue(_name);
+            }
+            return string.Join(", ", _catArr);
+        }
     }
+
+    
 }

@@ -29,10 +29,9 @@ namespace naNote.Logic.Tests
             Catalog catalog = CatalogBuilder.BuildTestCatalog();
 
             // Act
-            var retStr = catalog.ListText("diary");
 
             // Assert
-            Assert.True(retStr.Count > 0);
+            Assert.True(catalog.NoteList.Count() > 0);
         }
     }
 }
