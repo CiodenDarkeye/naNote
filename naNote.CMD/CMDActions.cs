@@ -31,7 +31,7 @@ namespace naNote.CMD
                     // TODO: Can I replace this with a yield return statement instead of using Linq?
                     // Seems like it would be more effective but I'd need to figure it out.
 
-                    var returnTake = 3;
+                    var returnTake = 10;
                     var returnSkip = 0;
                     var _catalogList = catalog.ListText(payload);
                     while (true)
@@ -40,7 +40,7 @@ namespace naNote.CMD
                         {
                             Console.WriteLine(item);
                         }
-                        Console.WriteLine("Press N to continue, or any other key to return.");
+                        Console.WriteLine("Press n to continue, or any other key to return.");
                         if (Console.ReadKey(true).KeyChar != 'n')
                         {
                             return "Returning to main menu.";

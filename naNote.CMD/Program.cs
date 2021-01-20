@@ -13,7 +13,7 @@ namespace naNote.CMD
         {
             Catalog catalog = new Catalog();
 
-            Console.WriteLine("Console Application time!");
+            Console.WriteLine("--naNote--\n");
             Console.WriteLine("Enter your commands");
             while (true)
             {
