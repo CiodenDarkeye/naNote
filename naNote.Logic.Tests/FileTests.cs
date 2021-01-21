@@ -27,7 +27,7 @@ namespace naNote.Logic.Tests
 
 
             // assert
-            Assert.Contains(CatalogBuilder.ReturnExpectedStrings()[0], catalog.DiaryList.First().Entry);
+            Assert.Contains(CatalogBuilder.ReturnExpectedStrings()[0], catalog.DiaryList.First().Entries.First());
 
         }
 

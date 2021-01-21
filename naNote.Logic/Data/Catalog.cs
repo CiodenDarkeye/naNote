@@ -28,15 +28,14 @@ namespace naNote.Logic.Data
                 // If there is an existing diary, append to it.
                 var diaryToEdit = DiaryList.Last(p => p.CreatedDtime.Date == DateTime.Today);
                 diaryToEdit.CategoryIDs.UnionWith(categories);
-                diaryToEdit.Entry += $"\n{DateTime.Now.ToShortTimeString()}: {payload}";
+                diaryToEdit.Entries.Add($"{DateTime.Now.ToShortTimeString()}: {payload}");
             }
             else
             {
                 // If there isn't, make a new one.
-                var newEntry = new Diary()
-                {
-                    Entry = $"Diary: {DateTime.Now.ToShortDateString()}\n\n{DateTime.Now.ToShortTimeString()}: {payload}"
-                };
+                var newEntry = new Diary();
+                newEntry.Entries.Add($"Daily diary: {DateTime.Now.ToShortDateString()}\n{DateTime.Now.ToShortTimeString()}: {payload}");
+                
                 newEntry.CategoryIDs.UnionWith(categories);
                 DiaryList.Add(newEntry);
             }

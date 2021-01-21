@@ -20,7 +20,7 @@ namespace naNote.Logic.Tests
             catalog.AddDiary(new HashSet<int>() { 4, 5, 6 }, "Diary #2");
 
             //Assert
-            Assert.Contains("Diary #1", catalog.DiaryList.First().Entry);
+            Assert.Contains("Diary #1", catalog.DiaryList.First().Entries.First());
             Assert.Equal(new HashSet<int>() {0,1,2,4,5,6}, catalog.DiaryList.Last().CategoryIDs);
 
         }

@@ -58,14 +58,29 @@ namespace naNote.CMD
 
                 case "debug":
                     var watch = new Stopwatch();
-                    watch.Start();
-                    for (int i = 0; i < 10000; i++)
+                    if (payload != "note" & payload != "diary")
                     {
-                        Parser _parser = new Parser(Generator.GenerateEntry("note", 2, 10, 2, 10), catalog);
-                        catalog.AddNote(_parser.Categories, _parser.Payload);
+                        return "Sorry, only note and payload are accepted values right now.";
+                    }
+                    watch.Start();
+                    for (int i = 0; i < 100; i++)
+                    {
+                        Parser _parser = new Parser(Generator.GenerateEntry(payload, 2, 10, 2, 10), catalog);
+                        switch (payload)
+                        {
+                            case "note":
+                                catalog.AddNote(_parser.Categories, _parser.Payload);
+                                break;
+                            case "diary":
+                                catalog.AddDiary(_parser.Categories, _parser.Payload);
+                                break;
+                            default:
+                                break;
+                        }
+                        
                     }
                     watch.Stop();
-                    return $"Creation of 10,000 notes completed in {watch.ElapsedMilliseconds} ms";
+                    return $"Creation of 100 entries completed in {watch.ElapsedMilliseconds} ms";
 
                 case "save":
                     Access.Save(catalog);
@@ -106,10 +121,11 @@ namespace naNote.CMD
                 case "diary":
                     foreach (var diary in catalog.DiaryList.AsEnumerable().Reverse())
                     {
-                        _returnList.Add(
-                            $"Entry #{diary.Id}, created at {diary.CreatedDtime.ToShortDateString()}\n" +
-                            $"{diary.Entry}\n" +
-                            $"Categories: { GetCategoryList(diary.CategoryIDs, catalog) }");
+                        foreach (var entry in diary.Entries)
+                        {
+                            _returnList.Add($"{entry}");
+                        }
+                        _returnList.Add($"Categories: { GetCategoryList(diary.CategoryIDs, catalog) }");
                     }
                     break;
                 case "note":
