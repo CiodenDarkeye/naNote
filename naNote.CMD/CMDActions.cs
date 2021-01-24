@@ -65,7 +65,7 @@ namespace naNote.CMD
                     watch.Start();
                     for (int i = 0; i < 100; i++)
                     {
-                        Parser _parser = new Parser(Generator.GenerateEntry(payload, 2, 10, 2, 10), catalog);
+                        Parser _parser = new Parser(Generator.GenerateEntry(payload, 10, 5), catalog);
                         switch (payload)
                         {
                             case "note":
