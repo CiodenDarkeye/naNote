@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "naNote.Logic", "naNote.Logi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "naNote.Logic.Tests", "naNote.Logic.Tests\naNote.Logic.Tests.csproj", "{ADE67748-6F4F-43EB-BF6B-33D186B6E2CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoremGenerator", "..\LoremGenerator\LoremGenerator\LoremGenerator.csproj", "{2ADD082A-1DA8-41EA-A47F-A6D084926CA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoremGenerator", "..\LoremGenerator\LoremGenerator\LoremGenerator.csproj", "{2ADD082A-1DA8-41EA-A47F-A6D084926CA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoremGenerator.Tests", "..\LoremGenerator\LoremGenerator.Tests\LoremGenerator.Tests.csproj", "{2A25710C-99AF-4C51-BEC8-169A03EE43BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoremGenerator.Tests", "..\LoremGenerator\LoremGenerator.Tests\LoremGenerator.Tests.csproj", "{2A25710C-99AF-4C51-BEC8-169A03EE43BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "naNoteGUI", "naNoteGUI\naNoteGUI.csproj", "{0278227A-B32F-484B-8C2B-C97407FCF2BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{2A25710C-99AF-4C51-BEC8-169A03EE43BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A25710C-99AF-4C51-BEC8-169A03EE43BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A25710C-99AF-4C51-BEC8-169A03EE43BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0278227A-B32F-484B-8C2B-C97407FCF2BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0278227A-B32F-484B-8C2B-C97407FCF2BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0278227A-B32F-484B-8C2B-C97407FCF2BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0278227A-B32F-484B-8C2B-C97407FCF2BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
